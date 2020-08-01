@@ -15,4 +15,10 @@ class NightWriterTest < Minitest::Test
     assert_equal 11, night_writer.read_input.gsub("\n", "").length
   end
 
+  def test_it_can_print_message_to_terminal
+    night_writer = NightWriter.new
+
+    assert_equal "Created 'braille.txt' containing 11 characters", night_writer.print_to_terminal
+  end
+
 end
