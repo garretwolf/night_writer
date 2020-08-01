@@ -9,4 +9,10 @@ class NightWriterTest < Minitest::Test
     assert_instance_of NightWriter, night_writer
   end
 
+  def test_it_can_determine_number_of_characters
+    night_writer = NightWriter.new
+
+    assert_equal 11, night_writer.read_input.gsub("\n", "").length
+  end
+
 end
