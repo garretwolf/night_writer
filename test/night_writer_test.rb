@@ -22,4 +22,11 @@ class NightWriterTest < Minitest::Test
     assert_equal "Created 'braille.txt' containing 11 characters", night_writer.print_to_terminal
   end
 
+  def test_it_can_save_input_to_output
+    night_writer = NightWriter.new
+    night_writer.save_input_to_output
+
+    assert_equal "hello world", night_writer.read_output
+  end
+
 end
