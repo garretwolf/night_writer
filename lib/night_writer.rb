@@ -8,7 +8,14 @@ class NightWriter
     @read_input = File.read(input_file)
   end
 
+  def print_to_terminal
+    puts "Created '#{output_file}' containing #{read_input.gsub("\n", "").length} characters"
+    #Added gsub to so it doesn't count newline as a character
+  end
 end
+
+night_writer = NightWriter.new
+night_writer.print_to_terminal
 
 
 # Code from starter file
