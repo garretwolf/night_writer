@@ -1,14 +1,25 @@
 class NightWriter
-  attr_reader :file_reader, :input_file, :output_file, :read_input
+  attr_reader :file_reader, :input_file, :output_file,
+  :read_input, :read_output
 
   def initialize
     # @reader = FileReader.new
     @input_file = ARGV[0]
     @output_file = ARGV[1]
     @read_input = File.read(input_file)
+    @read_output = File.read(output_file)
+  end
+
+  # def save_input_message_to_output # Takes message from input file and saves to output file
+  #   File.open(output_file, "w") { |file| file.write read_input }
+  # end
+
+  def save_input_to_output #Saves the message contained in input to the output file
+    File.open(output_file, "w") { |file| file.write(read_input.gsub("\n", "")) }
   end
 
   def print_to_terminal
+    # require "pry"; binding.pry
     puts "Created '#{output_file}' containing #{read_input.gsub("\n", "").length} characters"
     #Added gsub to so it doesn't count newline as a character
   end
