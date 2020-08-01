@@ -11,12 +11,16 @@ class NightWriter
   end
 
   def save_input_to_output #Saves the message contained in input to the output file
-    File.open(output_file, "w") { |file| file.write(read_input.gsub("\n", "")) }
+    File.open(output_file, "w") { |file| file.write(count_input_characters) }
+  end
+
+  def count_input_characters
+    read_input.gsub("\n", "")
   end
 
   def print_to_terminal
     # require "pry"; binding.pry
-    puts "Created '#{output_file}' containing #{read_input.gsub("\n", "").length} characters"
+    puts "Created '#{output_file}' containing #{count_input_characters} characters"
     #Added gsub to so it doesn't count newline as a character
   end
 end
