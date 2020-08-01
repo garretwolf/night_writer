@@ -10,10 +10,6 @@ class NightWriter
     @read_output = File.read(output_file)
   end
 
-  # def save_input_message_to_output # Takes message from input file and saves to output file
-  #   File.open(output_file, "w") { |file| file.write read_input }
-  # end
-
   def save_input_to_output #Saves the message contained in input to the output file
     File.open(output_file, "w") { |file| file.write(read_input.gsub("\n", "")) }
   end
