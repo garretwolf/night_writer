@@ -11,14 +11,17 @@ class NightWriter
     @read_input = File.read(input_file)
     @read_output = File.read(output_file)
     @dictionary = Dictionary.new
+    save_input_to_output
+    print_to_terminal
+    encode_to_braille(input)
   end
 
   def save_input_to_output #Saves the message contained in input to the output file
-    File.open(output_file, "w") { |file| file.write(count_input_characters) }
+    File.open(output_file, "w") { |file| file.write(read_input) }
   end
 
   def count_input_characters
-    read_input.gsub("\n", "")
+    read_input.gsub("\n", "").length
   end
 
   def print_to_terminal
@@ -46,6 +49,8 @@ class NightWriter
   end
 
 end
+
+
 
 
 # night_writer = NightWriter.new
