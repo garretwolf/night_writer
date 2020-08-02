@@ -1,5 +1,6 @@
 require "./test/test_helper"
 require "./lib/night_writer"
+require "./lib/dictionary"
 
 class NightWriterTest < Minitest::Test
 
@@ -27,6 +28,16 @@ class NightWriterTest < Minitest::Test
     night_writer.save_input_to_output
 
     assert_equal "hello world", night_writer.read_output
+  end
+
+  def test_it_can_encode_to_braille
+    night_writer = NightWriter.new
+    
+    expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
+
+    assert_equal "00\n00\n..", night_writer.encode_to_braille('g')
+    assert_equal "0", night_writer.encode_to_braille('r')[0]
+    assert_equal expected, night_writer.encode_to_braille('hello world')
   end
 
 end
