@@ -28,9 +28,6 @@ class NightWriter
   end
 
   def encode_to_braille(input)
-    # you've taken in an INPUT string
-    # do the magic
-    # send out an OUTPUT string - this will be the braille characters
     line1 = ''
     line2 = ''
     line3 = ''
@@ -42,11 +39,17 @@ class NightWriter
     "#{line1}\n#{line2}\n#{line3}" ## spacing in the output may be off, may need to adjust how this string is printed
   end
 
+  def limit_characters_per_line(input)
+    input.chars.each_slice(80) do |line|
+      puts line.join("") + ("\n")
+    end
+  end
+
 end
 
 
 # night_writer = NightWriter.new
-# night_writer.print_to_terminal
+# night_writer.limit_characters_per_line("helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld")
 
 
 # Code from starter file
