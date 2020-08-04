@@ -27,7 +27,10 @@ class NightWriterTest < Minitest::Test
     night_writer = NightWriter.new
     night_writer.save_input_to_output
 
-    assert_equal "hello world", night_writer.read_output
+    expected = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
+
+
+    assert_equal expected, night_writer.read_output
   end
 
   def test_it_can_encode_to_braille
@@ -40,14 +43,12 @@ class NightWriterTest < Minitest::Test
     assert_equal expected, night_writer.encode_to_braille('hello world')
   end
 
-  def test_it_can_enforce_80_character_limit_per_line
+  def test_it_can_encode_with_character_limit
     skip
     night_writer = NightWriter.new
     expected = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld\nhelloworldhelloworldhelloworldhelloworldhelloworld"
 
     assert_equal expected, night_writer.limit_characters_per_line("helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld")
   end
-
-
 
 end
