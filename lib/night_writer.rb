@@ -48,8 +48,9 @@ class NightWriter
       file.write encode_with_character_limit
     end
   end
-  
+
 end
 
 
 night_writer = NightWriter.new
+night_writer.encode_file_to_braille
