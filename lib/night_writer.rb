@@ -43,6 +43,12 @@ class NightWriter
     end.join("\n")
   end
 
+  def encode_file_to_braille
+    File.open(output_file, "w") do |file|
+      file.write encode_with_character_limit
+    end
+  end
+  
 end
 
 
