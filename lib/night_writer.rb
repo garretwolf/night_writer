@@ -37,9 +37,10 @@ class NightWriter
   end
 
   def encode_with_character_limit
-    input.chars.each_slice(80) do |line|
-      puts line.join("") + ("\n")
-    end
+    character_limit = read_input.scan(/.{1,80}/)
+    character_limit.map do |string|
+      encode_to_braille(string)
+    end.join("\n")
   end
 
 end
