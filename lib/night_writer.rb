@@ -36,7 +36,7 @@ class NightWriter
     "#{line1}\n#{line2}\n#{line3}"
   end
 
-  def limit_characters_per_line(input)
+  def encode_with_character_limit
     input.chars.each_slice(80) do |line|
       puts line.join("") + ("\n")
     end
